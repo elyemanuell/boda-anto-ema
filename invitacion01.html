@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonella & Emanuel — 11.12.26</title>
+<meta name="description" content="Nos casamos el 11 de Diciembre de 2026 en Las Acacias Hotel de Campo. Confirmá tu asistencia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#faf6ec;
+    --card:#fffdf7;
+    --ink:#3d3a2e;
+    --ink-soft:#837c68;
+    --rose:#7d8a5c;
+    --rose-deep:#5f6b41;
+    --rose-mist:#eef0e2;
+    --line:#e2e2cf;
+    --gold:#b99a5b;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, var(--rose-mist), transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    line-height:1.65;
+    padding:32px 14px 60px;
+  }
+
+  .wrap{max-width:560px;margin:0 auto;}
+
+  /* one deliberate entrance, staggered, plays once */
+  .card{
+    opacity:0;
+    transform:translateY(14px);
+    animation:rise .7s ease forwards;
+  }
+  .card:nth-of-type(1){animation-delay:.05s}
+  .card:nth-of-type(2){animation-delay:.15s}
+  .card:nth-of-type(3){animation-delay:.25s}
+  .card:nth-of-type(4){animation-delay:.35s}
+  .card:nth-of-type(5){animation-delay:.45s}
+  .card:nth-of-type(6){animation-delay:.55s}
+  @keyframes rise{to{opacity:1; transform:none;}}
+
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    padding:34px 26px;
+    margin-bottom:20px;
+    text-align:center;
+  }
+
+  /* ---- Hero ---- */
+  .hero-frame{
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:14px;
+    overflow:hidden;
+    margin:0 0 22px;
+    background:linear-gradient(160deg, var(--rose-mist), #e4e6d2 60%, #dbdec4);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .hero-frame img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .hero-frame .hero-fallback{
+    font-family:'Parisienne', cursive;
+    font-size:1.6rem;
+    color:var(--rose-deep);
+    opacity:.55;
+  }
+
+  .names{
+    font-family:'Parisienne', cursive;
+    font-size:3.1rem;
+    color:var(--rose-deep);
+    line-height:1;
+  }
+  .names .amp{color:var(--gold); margin:0 6px;}
+  .kicker{
+    font-family:'Montserrat',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+
+  .phrase{
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:1.08rem;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+
+  h2{
+    font-family:'Parisienne', cursive;
+    font-weight:400;
+    color:var(--rose-deep);
+    font-size:2.1rem;
+    margin-bottom:14px;
+  }
+
+  .detail-row{display:flex; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:1.05rem;}
+  .detail-row:last-of-type{border-bottom:none;}
+  .detail-row span:first-child{color:var(--ink-soft); font-family:'Montserrat',sans-serif; font-size:.78rem; letter-spacing:.04em; align-self:center;}
+  .detail-row span:last-child{font-weight:500;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    background:var(--rose-deep);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-family:'Montserrat',sans-serif;
+    font-weight:500;
+    font-size:.85rem;
+    border:none;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .btn:hover{background:#8f4f65; transform:translateY(-1px);}
+  .btn:active{transform:translateY(0);}
+  .btn.ghost{background:transparent; color:var(--rose-deep); border:1.5px solid var(--rose-deep);}
+  .btn.ghost:hover{background:var(--rose-mist);}
+  .btn:focus-visible, input:focus-visible, select:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+
+  /* ---- Countdown ---- */
+  .countdown{display:flex; justify-content:center; gap:14px; margin-top:18px;}
+  .countdown div{display:flex; flex-direction:column; align-items:center;}
+  .countdown .num{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1.7rem; color:var(--rose-deep); line-height:1;}
+  .countdown .lbl{font-family:'Montserrat',sans-serif; font-size:.62rem; letter-spacing:.08em; color:var(--ink-soft); margin-top:4px;}
+
+  /* ---- Timeline ---- */
+  .timeline{text-align:left; margin-top:6px;}
+  .t-item{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);}
+  .t-item:last-child{border-bottom:none;}
+  .t-icon{
+    flex:0 0 40px; height:40px; width:40px;
+    border-radius:50%;
+    background:var(--rose-mist);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+  .t-time{font-family:'Montserrat',sans-serif; font-size:.72rem; color:var(--rose-deep); letter-spacing:.03em; font-weight:600;}
+  .t-title{font-size:1.05rem;}
+
+  /* ---- Form ---- */
+  .field{margin-bottom:16px; text-align:left;}
+  .field label{
+    display:block; font-family:'Montserrat',sans-serif; font-size:.72rem;
+    letter-spacing:.03em; color:var(--rose-deep); margin-bottom:6px; font-weight:600;
+  }
+  .field input, .field select{
+    width:100%; padding:11px 13px; border:1px solid var(--line);
+    border-radius:10px; font-family:'Cormorant Garamond',serif; font-size:1.05rem;
+    background:#fffefe; color:var(--ink);
+  }
+
+  .toggle{display:flex; gap:10px; margin-bottom:22px;}
+  .toggle input{display:none;}
+  .toggle label{
+    flex:1; text-align:center; padding:11px; border-radius:30px;
+    border:1.5px solid var(--line); font-family:'Montserrat',sans-serif; font-size:.82rem;
+    cursor:pointer; transition:.2s;
+  }
+  .toggle input:checked + label{background:var(--rose-deep); border-color:var(--rose-deep); color:#fff;}
+
+  .summary{
+    background:var(--rose-mist); border-radius:14px; padding:18px; margin-top:6px;
+  }
+  .summary .amount{font-size:1.5rem; font-weight:600; color:var(--rose-deep);}
+  .summary .split{font-size:.95rem; color:var(--ink-soft);}
+
+  .pay-box{
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    padding:14px; margin-top:14px; text-align:left;
+  }
+  .pay-box .lbl{font-family:'Montserrat',sans-serif; font-size:.68rem; letter-spacing:.03em; color:var(--ink-soft);}
+  .pay-box .alias{font-size:1.25rem; font-weight:600; color:var(--rose-deep); margin:2px 0 2px;}
+  .pay-box .titular{font-size:.9rem; color:var(--ink-soft);}
+  .pay-row{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
+
+  .wpp-row{display:flex; gap:10px; margin-top:18px;}
+  .wpp-row .btn{flex:1;}
+
+  .toast{
+    position:fixed; left:50%; bottom:26px; transform:translate(-50%, 12px);
+    background:var(--ink); color:#fff; padding:10px 18px; border-radius:30px;
+    font-family:'Montserrat',sans-serif; font-size:.82rem;
+    opacity:0; pointer-events:none; transition:.25s;
+  }
+  .toast.show{opacity:1; transform:translate(-50%, 0);}
+
+  .closing{border:none; background:transparent;}
+  .closing .names{font-size:2.6rem;}
+  .closing p{font-family:'Montserrat',sans-serif; font-size:.85rem; color:var(--ink-soft); margin-top:8px;}
+
+  /* ---- Modal de comprobante ---- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(61,58,46,.45);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px; opacity:0; pointer-events:none; transition:.2s; z-index:20;
+  }
+  .modal-overlay.show{opacity:1; pointer-events:auto;}
+  .modal-box{
+    background:var(--card); border-radius:16px; padding:28px 24px;
+    max-width:340px; text-align:center; transform:scale(.95); transition:.2s;
+  }
+  .modal-overlay.show .modal-box{transform:scale(1);}
+  .modal-box .check{font-size:2.2rem; margin-bottom:8px;}
+  .modal-box h3{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1.3rem; margin-bottom:8px;}
+  .modal-box p{font-size:.95rem; color:var(--ink-soft); margin-bottom:18px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="card">
+    <div class="hero-frame">
+      <img src="foto.jpg" alt="Antonella y Emanuel">
+    </div>
+    <div class="names">Antonella <span class="amp">&</span> Emanuel</div>
+    <div class="kicker">11 · 12 · 2026</div>
+    <p class="phrase">"Este es uno de los capítulos más importantes de nuestra historia y lo queremos escribir junto a las grandes personas que forman parte de ella, porque sabemos que el verdadero amor se celebra y la felicidad es mayor cuando es compartida."</p>
+  </div>
+
+  <div class="card">
+    <h2>Cuándo y dónde</h2>
+    <div class="detail-row"><span>Fecha</span><span>11 de diciembre, 2026</span></div>
+    <div class="detail-row"><span>Hora</span><span>18:00 hs</span></div>
+    <div class="detail-row"><span>Lugar</span><span>Las Acacias Hotel de Campo</span></div>
+    <div class="detail-row"><span>Dress code</span><span>Elegante</span></div>
+    <p style="font-size:.85rem; color:var(--ink-soft); margin-top:4px;">Evitar blanco, perla y marfil</p>
+    <a href="https://www.google.com/maps/place/Las+Acacias+Hotel+De+Campo/@-28.0277904,-56.0269806,17z" target="_blank" rel="noopener" class="btn" style="margin-top:18px;">Cómo llegar</a>
+
+    <div class="countdown" id="countdown">
+      <div><span class="num" id="cd-d">–</span><span class="lbl">DÍAS</span></div>
+      <div><span class="num" id="cd-h">–</span><span class="lbl">HS</span></div>
+      <div><span class="num" id="cd-m">–</span><span class="lbl">MIN</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Itinerario</h2>
+    <div class="timeline">
+      <div class="t-item"><div class="t-icon">🥂</div><div><div class="t-time">18:00</div><div class="t-title">Recepción</div></div></div>
+      <div class="t-item"><div class="t-icon">💍</div><div><div class="t-time">18:30</div><div class="t-title">Ceremonia civil</div></div></div>
+      <div class="t-item"><div class="t-icon">📸</div><div><div class="t-time">19:15</div><div class="t-title">Entrada y fotos</div></div></div>
+      <div class="t-item"><div class="t-icon">💃</div><div><div class="t-time">20:30</div><div class="t-title">Vals</div></div></div>
+      <div class="t-item"><div class="t-icon">🍽️</div><div><div class="t-time">21:00</div><div class="t-title">Cena</div></div></div>
+      <div class="t-item"><div class="t-icon">🍰</div><div><div class="t-time">22:30</div><div class="t-title">Brindis</div></div></div>
+      <div class="t-item"><div class="t-icon">🎶</div><div><div class="t-time">23:00</div><div class="t-title">Fiesta</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Confirmar asistencia</h2>
+    <p style="font-size:.98rem; color:var(--ink-soft); margin-bottom:6px;">El mejor regalo es tu presencia. No es necesario un obsequio, pero sí que confirmes abonando tu entrada (incluye cena y barra libre toda la noche).</p>
+    <p style="font-size:.85rem; color:var(--rose-deep); font-weight:600; margin-bottom:22px;">Confirmá antes del 10 de octubre, 2026</p>
+
+    <div class="toggle">
+      <input type="radio" id="asiste-si" name="asistencia" value="si" checked>
+      <label for="asiste-si">Asistiré</label>
+      <input type="radio" id="asiste-no" name="asistencia" value="no">
+      <label for="asiste-no">No podré ir</label>
+    </div>
+
+    <div id="rsvp-yes">
+      <div class="field">
+        <label for="nombre">Nombre y apellido</label>
+        <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
+      </div>
+      <div class="field">
+        <label for="adultos">Adultos — $80.000 c/u</label>
+        <input type="number" id="adultos" min="1" value="1">
+      </div>
+      <div class="field">
+        <label for="ninos">Niños (4 a 13 años) — $40.000 c/u</label>
+        <input type="number" id="ninos" min="0" value="0">
+      </div>
+      <div class="field">
+        <label for="cuotas">Modalidad de pago</label>
+        <select id="cuotas">
+          <option value="1">1 pago</option>
+          <option value="2">2 pagos</option>
+        </select>
+      </div>
+
+      <div class="summary">
+        <div class="amount" id="monto-total">$80.000</div>
+        <div class="split" id="monto-split"></div>
+
+        <div class="pay-box">
+          <div class="lbl">A NOMBRE DE</div>
+          <div class="titular" style="margin-bottom:8px;">Gomez Nadia Antonella Belen</div>
+          <div class="pay-row">
+            <button type="button" class="btn" onclick="copiarAlias()">Copiar alias (anto.ema.boda)</button>
+          </div>
+          <p style="font-size:.82rem; color:var(--ink-soft); margin-top:10px;">Después de transferir, compartí el comprobante por WhatsApp para confirmar tu lugar 👇</p>
+        </div>
+      </div>
+
+      <div class="wpp-row">
+        <button type="button" class="btn" onclick="enviarWhatsApp('ema')">Avisar a Ema</button>
+        <button type="button" class="btn" onclick="enviarWhatsApp('anto')">Avisar a Anto</button>
+      </div>
+    </div>
+
+    <div id="rsvp-no" style="display:none;">
+      <p style="color:var(--ink-soft); margin-bottom:16px;">Te vamos a extrañar, ¡gracias por avisarnos!</p>
+      <div class="wpp-row">
+        <button type="button" class="btn ghost" onclick="enviarCancelacion('ema')">Avisar a Ema</button>
+        <button type="button" class="btn ghost" onclick="enviarCancelacion('anto')">Avisar a Anto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Álbum</h2>
+    <p style="font-size:.98rem; color:var(--ink-soft); margin-bottom:16px;">Compartir este sueño con vos también es verlo desde tu mirada: subí las fotos que saques en la fiesta.</p>
+    <a href="https://photos.google.com" target="_blank" rel="noopener" class="btn ghost">Subir mis fotos</a>
+  </div>
+
+  <div class="card closing">
+    <div class="names">¡Te esperamos!</div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="check">✅</div>
+    <h3>Alias copiado</h3>
+    <p>Pegalo en tu Home Banking o app de pago. Cuando hagas la transferencia, no te olvides de mandar el comprobante por WhatsApp para confirmar tu lugar.</p>
+    <div class="wpp-row">
+      <button type="button" class="btn" onclick="enviarWhatsApp('ema'); cerrarModal();">Mandar a Ema</button>
+      <button type="button" class="btn" onclick="enviarWhatsApp('anto'); cerrarModal();">Mandar a Anto</button>
+    </div>
+    <button type="button" class="btn ghost" style="margin-top:12px; width:100%;" onclick="cerrarModal()">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  const PRECIO_ADULTO = 80000;
+  const PRECIO_NINO   = 40000;
+  const NUM_EMA  = "5493756466983";
+  const NUM_ANTO = "5493756437886";
+  const ALIAS = "anto.ema.boda";
+
+  // Toggle asistencia
+  document.querySelectorAll('input[name="asistencia"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const asiste = document.getElementById('asiste-si').checked;
+      document.getElementById('rsvp-yes').style.display = asiste ? 'block' : 'none';
+      document.getElementById('rsvp-no').style.display = asiste ? 'none' : 'block';
+    });
+  });
+
+  function calcularMonto(){
+    const adultos = Math.max(0, parseInt(document.getElementById('adultos').value) || 0);
+    const ninos   = Math.max(0, parseInt(document.getElementById('ninos').value) || 0);
+    const cuotas  = parseInt(document.getElementById('cuotas').value);
+    const total = adultos * PRECIO_ADULTO + ninos * PRECIO_NINO;
+    return { adultos, ninos, cuotas, total };
+  }
+
+  function formatear(n){ return '$' + n.toLocaleString('es-AR'); }
+
+  function actualizarResumen(){
+    const { cuotas, total } = calcularMonto();
+    document.getElementById('monto-total').textContent = formatear(total);
+    const split = document.getElementById('monto-split');
+    split.textContent = cuotas === 2
+      ? `en 2 pagos de ${formatear(Math.ceil(total/2))}`
+      : 'pago único';
+  }
+  ['adultos','ninos','cuotas'].forEach(id =>
+    document.getElementById(id).addEventListener('input', actualizarResumen)
+  );
+  actualizarResumen();
+
+  function mostrarToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function copiarAlias(){
+    navigator.clipboard.writeText(ALIAS).then(
+      () => abrirModal(),
+      () => mostrarToast('No se pudo copiar. Alias: ' + ALIAS)
+    );
+  }
+
+  function abrirModal(){ document.getElementById('modal').classList.add('show'); }
+  function cerrarModal(){ document.getElementById('modal').classList.remove('show'); }
+
+  function enviarWhatsApp(destinatario){
+    const nombre = document.getElementById('nombre').value.trim();
+    if(!nombre){ mostrarToast('Ingresá tu nombre antes de confirmar'); return; }
+    const { adultos, ninos, cuotas, total } = calcularMonto();
+    const telefono = destinatario === 'ema' ? NUM_EMA : NUM_ANTO;
+    const texto =
+      `¡Hola! Soy ${nombre}. Confirmo mi asistencia a la boda:\n` +
+      `- Adultos: ${adultos}\n- Niños: ${ninos}\n- Modalidad: ${cuotas} pago(s)\n` +
+      `- Monto: ${formatear(total)}\n\nAdjunto el comprobante de la transferencia 📎`;
+    window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+
+  function enviarCancelacion(destinatario){
+    const telefono = destinatario === 'ema' ? NUM_EMA : NUM_ANTO;
+    const texto = "¡Hola! Lamentablemente no podré asistir a la boda, ¡les deseo lo mejor en su gran día!";
+    window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+
+  // Countdown a la boda
+  function actualizarCountdown(){
+    const boda = new Date('2026-12-11T18:00:00-03:00').getTime();
+    const ahora = Date.now();
+    const dif = boda - ahora;
+    if(dif <= 0){
+      document.getElementById('cd-d').textContent = '0';
+      document.getElementById('cd-h').textContent = '0';
+      document.getElementById('cd-m').textContent = '0';
+      return;
+    }
+    document.getElementById('cd-d').textContent = Math.floor(dif / 86400000);
+    document.getElementById('cd-h').textContent = Math.floor((dif % 86400000) / 3600000);
+    document.getElementById('cd-m').textContent = Math.floor((dif % 3600000) / 60000);
+  }
+  actualizarCountdown();
+  setInterval(actualizarCountdown, 60000);
+</script>
+
+</body>
+</html>
