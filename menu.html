@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menú y bebidas · Anto &amp; Ema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF9F4; --ink:#2B2F22; --olive:#5B6B3A; --olive-d:#44512B; --soft:#E7EBDC; --line:#B9BFA6; --mute:#6B705D;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Karla',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55}
+.wrap{max-width:620px;margin:0 auto;padding:40px 22px 80px}
+header{text-align:center;padding:24px 0 8px}
+header p{margin:0;color:var(--mute)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,11vw,3.8rem);line-height:1;margin:.2em 0 .15em;color:var(--olive-d)}
+.sub{font-family:var(--serif);font-style:italic;font-size:1.3rem}
+.intro{margin:28px 0 0;padding:16px 18px;background:var(--soft);border-radius:6px;font-size:.98rem}
+section{margin-top:46px}
+h2{font-family:var(--serif);font-weight:600;font-size:2rem;margin:0 0 4px;color:var(--olive-d);border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.3rem;margin:26px 0 6px;color:var(--olive)}
+.dish{margin:12px 0}
+.dish b{font-weight:700}
+.dish span{display:block;color:var(--mute);font-size:.94rem}
+
+fieldset{border:0;margin:0;padding:0}
+legend{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--olive);padding:0;margin:26px 0 4px}
+.opt{display:block;position:relative;cursor:pointer}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.row{display:flex;align-items:center;gap:12px;padding:12px 8px;border-bottom:1px dotted var(--line);transition:background .15s}
+.name{flex:1}
+.box{width:26px;height:26px;border:1.5px solid var(--olive);border-radius:50%;display:grid;place-items:center;flex:none;transition:background .15s}
+.box svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.opt input:checked + .row{background:var(--soft)}
+.opt input:checked + .row .box{background:var(--olive)}
+.opt input:checked + .row .box svg{opacity:1}
+.opt input:checked + .row .name{font-weight:700}
+.opt input:focus-visible + .row{outline:3px solid var(--olive);outline-offset:-3px}
+
+label.f{display:block;margin-top:30px;font-weight:700}
+input[type=text]{width:100%;margin-top:6px;padding:13px;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:6px}
+input[type=text]:focus{outline:3px solid var(--soft);border-color:var(--olive)}
+button{margin-top:26px;width:100%;padding:15px;font:inherit;font-weight:700;font-size:1.05rem;color:#fff;background:var(--olive);border:0;border-radius:6px;cursor:pointer}
+button:hover{background:var(--olive-d)}
+button:disabled{opacity:.6;cursor:wait}
+button:focus-visible{outline:3px solid var(--olive-d);outline-offset:3px}
+#msg{margin:14px 0 0;min-height:1.4em;color:#9A2F2F;font-size:.95rem}
+.hp{position:absolute;left:-9999px}
+.ok{text-align:center;padding:30px 10px}
+.ok h2{border:0}
+.ok p{font-size:1.1rem}
+footer{margin-top:50px;text-align:center;font-size:.92rem}
+footer a{color:var(--olive-d)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p>11 de diciembre · Corrientes</p>
+  <h1>Anto &amp; Ema</h1>
+  <p class="sub">Lo que vamos a compartir esa noche</p>
+</header>
+
+<p class="intro">Gracias por acompañarnos y por su regalo: con ese aporte vamos a armar la cena y la barra. Mirá el menú y marcá las bebidas que creés que vas a tomar. Tu opinión nos ayuda a no quedarnos cortos.</p>
+
+<section id="menu">
+  <h2>Menú</h2>
+
+  <h3>Entrada</h3>
+  <div class="dish"><b>Brochet de cherry, aceituna, queso y jamón</b></div>
+
+  <h3>Cena</h3>
+  <div class="dish"><b>Carne asada</b></div>
+  <div class="dish"><b>Guarniciones</b><span>Ensaladas y acompañamientos</span></div>
+
+  <h3>Mesa dulce</h3>
+  <div class="dish"><b>Mesa dulce y torta</b></div>
+</section>
+
+<section id="bebidas">
+  <h2>Bebidas</h2>
+
+  <form id="form" novalidate>
+    <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <fieldset><legend>Con alcohol</legend><div id="alc"></div></fieldset>
+    <fieldset><legend>Sin alcohol</legend><div id="sin"></div></fieldset>
+
+    <label class="f" for="nombre">Tu nombre y apellido</label>
+    <input type="text" id="nombre" maxlength="80" autocomplete="name" required>
+
+    <button type="submit" id="btn">Enviar</button>
+    <p id="msg" role="alert" aria-live="polite"></p>
+  </form>
+
+  <div id="ok" class="ok" hidden>
+    <h2>¡Gracias!</h2>
+    <p>Recibimos tus elecciones.</p>
+    <p class="sub">Nos vemos el 11 de diciembre.</p>
+  </div>
+</section>
+
+<footer><a href="./">Volver a la invitación</a></footer>
+</div>
+
+<script>
+(function(){
+  // 1) Pegá acá la URL de tu Apps Script (termina en /exec)
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwffwOwttySI3S-LmuZe8g4_mH-2X4TVKGWJD927CM98-aLFw4uuyXPQmkdvN80V5GJ/exec';
+
+  var CON_ALCOHOL = ['Vino tinto','Vino blanco','Cerveza','Fernet con coca'];
+  var SIN_ALCOHOL = ['Cerveza sin alcohol','Sprite','Coca-Cola','Agua','Agua saborizada naranja','Agua saborizada pomelo'];
+  var CHECK = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  function pintar(id, lista){
+    document.getElementById(id).innerHTML = lista.map(function(n){
+      return '<label class="opt"><input type="checkbox" name="b" value="'+n+'">'+
+             '<span class="row"><span class="name">'+n+'</span><span class="box">'+CHECK+'</span></span></label>';
+    }).join('');
+  }
+  pintar('alc', CON_ALCOHOL);
+  pintar('sin', SIN_ALCOHOL);
+
+  var form = document.getElementById('form');
+  var btn = document.getElementById('btn');
+  var msg = document.getElementById('msg');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.textContent = '';
+    var nombre = document.getElementById('nombre').value.trim();
+    var elegidas = [].map.call(form.querySelectorAll('input[name="b"]:checked'), function(c){return c.value;});
+
+    if(!elegidas.length){ msg.textContent = 'Marcá al menos una bebida.'; return; }
+    if(!nombre){ msg.textContent = 'Escribí tu nombre y apellido.'; document.getElementById('nombre').focus(); return; }
+    if(form.web.value){ return; } // anti-spam
+    if(ENDPOINT.indexOf('http') !== 0){ msg.textContent = 'Falta configurar el envío (URL del script).'; return; }
+
+    btn.disabled = true; btn.textContent = 'Enviando…';
+
+    var body = new URLSearchParams();
+    body.append('nombre', nombre);
+    body.append('bebidas', elegidas.join('|'));
+
+    // no-cors: Apps Script no devuelve cabeceras CORS; el envío igual llega a la planilla
+    fetch(ENDPOINT, {method:'POST', mode:'no-cors', body: body})
+    .then(function(){
+      form.hidden = true;
+      var ok = document.getElementById('ok');
+      ok.hidden = false;
+      ok.scrollIntoView({behavior:'smooth', block:'start'});
+    })
+    .catch(function(){
+      msg.textContent = 'No se pudo enviar. Revisá tu conexión y probá de nuevo.';
+      btn.disabled = false; btn.textContent = 'Enviar';
+    });
+  });
+})();
+</script>
+</body>
+</html>
