@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Nos casamos! Te esperamos desde las 23:00 hs — Antonella & Emanuel</title>
+<meta name="description" content="Te invitamos a celebrar con nosotros desde las 23:00 hs. Viernes 11 de diciembre de 2026, Hotel de Campo Las Acacias.">
+
+<link rel="icon" type="image/jpeg" href="foto.jpg">
+
+<!-- Vista previa al compartir (misma foto que la invitación principal) -->
+<meta property="og:title" content="¡Nos casamos! Te esperamos en la fiesta">
+<meta property="og:description" content="Antonella & Emanuel — Viernes 11 de diciembre, desde las 23:00 hs. Hotel de Campo Las Acacias.">
+<meta property="og:image" content="https://elyemanuell.github.io/boda-anto-ema/foto.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elyemanuell.github.io/boda-anto-ema/fiesta.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¡Nos casamos! Te esperamos en la fiesta">
+<meta name="twitter:description" content="Antonella & Emanuel — Viernes 11 de diciembre, desde las 23:00 hs.">
+<meta name="twitter:image" content="https://elyemanuell.github.io/boda-anto-ema/foto.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#faf6ec; --card:#fffdf7; --ink:#3d3a2e; --ink-soft:#837c68;
+  --rose-deep:#5f6b41; --rose-mist:#eef0e2; --line:#e2e2cf; --gold:#b99a5b; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:radial-gradient(1200px 600px at 50% -10%, var(--rose-mist), transparent 60%), var(--paper);
+  color:var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.15rem; line-height:1.65;
+  padding:32px 14px 60px;
+}
+.wrap{max-width:560px;margin:0 auto;}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--line);padding:34px 26px;margin-bottom:20px;text-align:center;}
+.hero-frame{width:100%;aspect-ratio:4/5;border-radius:14px;overflow:hidden;margin:0 0 22px;background:var(--rose-mist);}
+.hero-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+h1{font-family:'Parisienne',cursive;font-weight:400;font-size:3.1rem;color:var(--rose-deep);line-height:1.05;}
+h2{font-family:'Parisienne',cursive;font-weight:400;color:var(--rose-deep);font-size:2.1rem;margin-bottom:14px;}
+.lead{font-size:1.2rem;margin-top:10px;}
+.text{margin-top:16px;color:var(--ink);}
+.hora{display:inline-block;margin-top:18px;padding:8px 20px;border:1.5px solid var(--gold);border-radius:30px;
+  font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.12em;color:var(--rose-deep);font-weight:600;}
+.info{text-align:left;margin-top:22px;}
+.info p{padding:9px 0;border-bottom:1px dashed var(--line);}
+.info p:last-child{border-bottom:none;}
+.sub{font-style:italic;color:var(--ink-soft);margin-top:22px;text-align:left;}
+.firma{font-family:'Parisienne',cursive;font-size:2rem;color:var(--rose-deep);margin-top:24px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--rose-deep);color:#fff;padding:12px 22px;border-radius:30px;
+  text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:500;font-size:.85rem;border:none;cursor:pointer;transition:transform .15s ease,background .2s ease;}
+.btn:hover{background:#4a5533;transform:translateY(-1px);}
+.btn.ghost{background:transparent;color:var(--rose-deep);border:1.5px solid var(--rose-deep);}
+.btn.ghost:hover{background:var(--rose-mist);}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.field{margin-top:16px;text-align:left;}
+.field label{display:block;font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.03em;color:var(--rose-deep);margin-bottom:6px;font-weight:600;}
+.field input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-family:'Cormorant Garamond',serif;font-size:1.05rem;background:#fffefe;color:var(--ink);}
+.summary{background:var(--rose-mist);border-radius:14px;padding:18px;margin-top:20px;}
+.amount{font-size:1.6rem;font-weight:600;color:var(--rose-deep);}
+.note{font-size:.95rem;color:var(--ink-soft);}
+.pay-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px;text-align:left;}
+.pay-box .lbl{font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.03em;color:var(--ink-soft);}
+.pay-box .titular{font-size:.95rem;color:var(--ink-soft);margin-bottom:10px;}
+.wpp-row{display:flex;gap:10px;margin-top:18px;}
+.wpp-row .btn{flex:1;}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,12px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:30px;
+  font-family:'Montserrat',sans-serif;font-size:.82rem;opacity:0;pointer-events:none;transition:.25s;}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="card">
+  <div class="hero-frame"><img src="foto.jpg" alt="Antonella y Emanuel"></div>
+  <h1>¡Nos casamos!</h1>
+  <p class="lead">Y nuestra fiesta no sería lo mismo sin vos ✨</p>
+  <p class="text">¡Por eso queremos invitarte a celebrar con nosotros! Te esperamos a partir de las 23:00 hs para brindar, bailar y disfrutar juntos de nuestra gran noche.</p>
+  <span class="hora">DESDE LAS 23:00 HS</span>
+
+  <div class="info">
+    <p>📅 <b>Fecha:</b> Viernes 11 de diciembre de 2026</p>
+    <p>📍 <b>Lugar:</b> Hotel de Campo Las Acacias</p>
+    <p>👗 <b>Dress code:</b> evitar blanco.</p>
+  </div>
+
+  <p class="sub">Lo que nos espera:</p>
+  <div class="info" style="margin-top:6px;">
+    <p>🥂 Brindis</p>
+    <p>🎆 Fuegos artificiales</p>
+    <p>🎉 Fiesta, carnaval carioca, fotos y momentos inolvidables</p>
+  </div>
+
+  <p class="text" style="margin-top:24px;">¡Vení con ganas de festejar!</p>
+  <div class="firma">Antonella &amp; Emanuel</div>
+
+  <a href="https://www.google.com/maps/place/Las+Acacias+Hotel+De+Campo/@-28.0277904,-56.0269806,667m/data=!3m2!1e3!4b1!4m9!3m8!1s0x94565d4a91b8fba9:0xac1a080646a68e77!5m2!4m1!1i2!8m2!3d-28.0277904!4d-56.0269806!16s%2Fg%2F11dx905tbn" target="_blank" rel="noopener" class="btn ghost" style="margin-top:22px;">Cómo llegar</a>
+</div>
+
+<div class="card">
+  <h2>Tarjeta para la fiesta</h2>
+  <p class="note">Tarjeta de ingreso + barra libre $20.000 por persona.</p>
+
+  <div class="field">
+    <label for="nombre">Nombre y apellido</label>
+    <input type="text" id="nombre" placeholder="Ej: Juan Pérez" autocomplete="name">
+  </div>
+  <div class="field">
+    <label for="personas">Cantidad de personas</label>
+    <input type="number" id="personas" min="1" value="1" inputmode="numeric">
+  </div>
+
+  <div class="summary">
+    <div class="amount" id="monto">$20.000</div>
+    <div class="pay-box">
+      <div class="lbl">A NOMBRE DE</div>
+      <div class="titular">Gomez Nadia Antonella Belen</div>
+      <button type="button" class="btn" onclick="copiarAlias()">Copiar alias (anto.ema.boda)</button>
+      <p class="note" style="margin-top:10px;font-size:.88rem;">Una vez realizado el pago, envianos el comprobante para confirmar tu lugar.</p>
+    </div>
+  </div>
+
+  <div class="wpp-row">
+    <button type="button" class="btn" onclick="enviarWhatsApp('ema')">Avisar a Ema</button>
+    <button type="button" class="btn" onclick="enviarWhatsApp('anto')">Avisar a Anto</button>
+  </div>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const PRECIO = 20000;
+const NUM_EMA = "5493756466983";
+const NUM_ANTO = "5493756437886";
+const ALIAS = "anto.ema.boda";
+
+function personas(){ return Math.max(1, parseInt(document.getElementById('personas').value) || 1); }
+function fmt(n){ return '$' + n.toLocaleString('es-AR'); }
+function actualizar(){ document.getElementById('monto').textContent = fmt(personas() * PRECIO); }
+document.getElementById('personas').addEventListener('input', actualizar);
+actualizar();
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+function copiarAlias(){
+  navigator.clipboard.writeText(ALIAS).then(
+    () => toast('Alias copiado: ' + ALIAS),
+    () => toast('No se pudo copiar. Alias: ' + ALIAS)
+  );
+}
+function enviarWhatsApp(dest){
+  const nombre = document.getElementById('nombre').value.trim();
+  if(!nombre){ toast('Ingresá tu nombre antes de avisar'); return; }
+  const n = personas();
+  const tel = dest === 'ema' ? NUM_EMA : NUM_ANTO;
+  const texto = `¡Hola! Soy ${nombre}. Confirmo que voy a la fiesta desde las 23:00 hs (${n} ${n === 1 ? 'persona' : 'personas'}).\n` +
+                `Colaboración para la barra libre: ${fmt(n * PRECIO)}\n\nAdjunto el comprobante de la transferencia 📎`;
+  window.open(`https://wa.me/${tel}?text=${encodeURIComponent(texto)}`, '_blank');
+}
+</script>
+</body>
+</html>
