@@ -154,7 +154,7 @@ function enviarWhatsApp(dest){
   if(!nombre){ toast('Ingresá tu nombre antes de avisar'); return; }
   const tel = dest === 'ema' ? NUM_EMA : NUM_ANTO;
   const texto = `¡Hola! Soy ${nombre}. Confirmo que voy a la fiesta desde las 23:00 hs.\n` +
-                `Colaboración para la barra libre: ${fmt(PRECIO)}\n\nAdjunto el comprobante de la transferencia 📎`;
+                `Tarjeta para la fiesta + Barra libre: ${fmt(PRECIO)}\n\nAdjunto el comprobante de la transferencia 📎`;
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(texto)}`, '_blank');
 }
 </script>
