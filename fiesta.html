@@ -135,11 +135,8 @@ const NUM_EMA = "5493756466983";
 const NUM_ANTO = "5493756437886";
 const ALIAS = "anto.ema.boda";
 
-function personas(){ return Math.max(1, parseInt(document.getElementById('personas').value) || 1); }
 function fmt(n){ return '$' + n.toLocaleString('es-AR'); }
-function actualizar(){ document.getElementById('monto').textContent = fmt(personas() * PRECIO); }
-document.getElementById('personas').addEventListener('input', actualizar);
-actualizar();
+document.getElementById('monto').textContent = fmt(PRECIO);
 
 function toast(msg){
   const t = document.getElementById('toast');
@@ -155,10 +152,9 @@ function copiarAlias(){
 function enviarWhatsApp(dest){
   const nombre = document.getElementById('nombre').value.trim();
   if(!nombre){ toast('Ingresá tu nombre antes de avisar'); return; }
-  const n = personas();
   const tel = dest === 'ema' ? NUM_EMA : NUM_ANTO;
-  const texto = `¡Hola! Soy ${nombre}. Confirmo que voy a la fiesta desde las 23:00 hs (${n} ${n === 1 ? 'persona' : 'personas'}).\n` +
-                `Colaboración para la barra libre: ${fmt(n * PRECIO)}\n\nAdjunto el comprobante de la transferencia 📎`;
+  const texto = `¡Hola! Soy ${nombre}. Confirmo que voy a la fiesta desde las 23:00 hs.\n` +
+                `Colaboración para la barra libre: ${fmt(PRECIO)}\n\nAdjunto el comprobante de la transferencia 📎`;
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(texto)}`, '_blank');
 }
 </script>
